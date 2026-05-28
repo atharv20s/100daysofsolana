@@ -19,3 +19,19 @@ My journey learning Solana development over 100 days.
 
 ### Devnet Wallet Balance Screenshot (Day 2)
 ![Day 2 Screenshot](./100-days-of-solana/day-02/day2.png)
+
+---
+
+## Day 3: Understand SOL and Lamports
+*   Learned the relationship: `1 SOL = 1,000,000,000 Lamports`.
+*   Created a script to verify wallet balances in both SOL and Lamports.
+*   Address: `4A9KgD7Tf7HQ5KpVdZYT8KuZPVoSqGEd55t5iLZYX6sE`
+*   **Resolution of Faucet Rate Limits:** When the faucet returned a 429 rate limit error, we performed a CLI transfer of 0.5 SOL from our Day 2 wallet to the Day 3 wallet using transaction signature `3E6G5QRnZ4fxafme4X4tm6djF5oypduA8fiva7GG2sJck2NXhtpogeD63rdRgAK6Q45c8r9YFBqAH16aZLi8D4TA`.
+*   Verified the base transfer transaction fee of **5,000 Lamports** (0.000005 SOL) via `solana confirm`.
+
+### Math Derivation Proof:
+*   **SOL to Lamports:** `0.5 SOL * 1,000,000,000 = 500,000,000 Lamports`
+*   **Lamports to SOL:** `500,000,000 Lamports / 1,000,000,000 = 0.5 SOL`
+
+### Devnet Wallet Balance Screenshot (Day 3)
+![Day 3 Screenshot](./100-days-of-solana/day-03/day3.png)
