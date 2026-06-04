@@ -35,3 +35,14 @@ My journey learning Solana development over 100 days.
 
 ### Devnet Wallet Balance Screenshot (Day 3)
 ![Day 3 Screenshot](./100-days-of-solana/day-03/day3.png)
+
+---
+
+## Day 4: Connect a Browser Wallet
+*   Built a browser app that discovers installed Solana-compatible wallets using the `@wallet-standard/app` Wallet Standard API.
+*   Connected to the wallet securely using the standard connect features with explicit user approval.
+*   Address: `Gfa11SqE7wpwh9ksRzPT16P79MLnfVJ3n2iTbkvjTFJf`
+*   Fetched and displayed the real-time Devnet balance using the `@solana/kit` RPC client.
+
+### Browser Wallet Connection Screenshot
+![Day 4 Screenshot](./100-days-of-solana/day-04/day4.png)
