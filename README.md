@@ -46,3 +46,13 @@ My journey learning Solana development over 100 days.
 
 ### Browser Wallet Connection Screenshot
 ![Day 4 Screenshot](./100-days-of-solana/day-04/day4.png)
+
+---
+
+## Day 5: Explore Different Wallet Types
+*   Set up and compared three different wallet types hands-on: CLI wallet, browser extension wallet, and mobile wallet.
+*   Analyzed the hot vs. cold and custodial vs. non-custodial tradeoffs in Solana key management.
+*   Built and launched an interactive **Solana Wallet Explorer & Reflection Hub** on localhost.
+
+### Wallet Explorer Dashboard Screenshot (Day 5)
+![Day 5 Screenshot](./100-days-of-solana/day-05/day5.png)

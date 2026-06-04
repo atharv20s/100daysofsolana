@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solana Wallet Explorer & Reflection Hub</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg-color: #0b0c10;
+        --panel-bg: rgba(22, 33, 62, 0.4);
+        --panel-border: rgba(255, 255, 255, 0.08);
+        --text-primary: #f5f6f8;
+        --text-secondary: #94a3b8;
+        --accent-solana: #14f195;
+        --accent-purple: #9945FF;
+        --accent-cyan: #00ffd5;
+        --accent-orange: #ff7b00;
+        --accent-red: #ff3366;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: 'Outfit', sans-serif;
+      }
+
+      body {
+        background-color: var(--bg-color);
+        background-image: 
+          radial-gradient(circle at 10% 20%, rgba(153, 69, 255, 0.15) 0%, transparent 40%),
+          radial-gradient(circle at 90% 80%, rgba(20, 241, 149, 0.15) 0%, transparent 40%);
+        color: var(--text-primary);
+        min-height: 100vh;
+        padding: 2rem 1rem;
+        line-height: 1.5;
+      }
+
+      header {
+        max-width: 1100px;
+        margin: 0 auto 2.5rem auto;
+        text-align: center;
+      }
+
+      .badge {
+        background: linear-gradient(135deg, var(--accent-purple), var(--accent-solana));
+        color: white;
+        padding: 0.35rem 0.85rem;
+        border-radius: 50px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        display: inline-block;
+        margin-bottom: 0.75rem;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 2.5rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, #fff 30%, #a5b4fc 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 0.5rem;
+      }
+
+      .subtitle {
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      /* Tabs system */
+      .tabs {
+        max-width: 800px;
+        margin: 0 auto 2.5rem auto;
+        display: flex;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--panel-border);
+        border-radius: 12px;
+        padding: 0.3rem;
+      }
+
+      .tab-btn {
+        flex: 1;
+        background: transparent;
+        border: none;
+        color: var(--text-secondary);
+        padding: 0.8rem 1rem;
+        font-size: 0.95rem;
+        font-weight: 600;
+        cursor: pointer;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+      }
+
+      .tab-btn:hover {
+        color: #fff;
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      .tab-btn.active {
+        color: #fff;
+        background: var(--panel-bg);
+        border: 1px solid rgba(153, 69, 255, 0.3);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Container */
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      .tab-content {
+        display: none;
+      }
+
+      .tab-content.active {
+        display: block;
+        animation: fadeIn 0.4s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      /* GRID SECTION */
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .card {
+        background: var(--panel-bg);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid var(--panel-border);
+        border-radius: 16px;
+        padding: 1.5rem;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: var(--card-accent, var(--accent-purple));
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(255, 255, 255, 0.15);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.25rem;
+      }
+
+      .card-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .card-tag {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .stat-list {
+        list-style: none;
+        margin-bottom: 1.25rem;
+      }
+
+      .stat-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.4rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        font-size: 0.85rem;
+      }
+
+      .stat-label {
+        color: var(--text-secondary);
+      }
+
+      .stat-value {
+        color: #fff;
+        font-weight: 600;
+        text-align: right;
+      }
+
+      .stat-value.code-path {
+        font-family: monospace;
+        font-size: 0.75rem;
+        color: var(--accent-cyan);
+      }
+
+      .card-desc {
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        background: rgba(0, 0, 0, 0.15);
+        padding: 0.75rem;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.02);
+      }
+
+      /* LIVE HUB */
+      .hub-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+
+      @media (max-width: 768px) {
+        .hub-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .hub-panel {
+        background: rgba(22, 33, 62, 0.25);
+        border: 1px solid var(--panel-border);
+        border-radius: 20px;
+        padding: 2rem;
+      }
+
+      .hub-title {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: #fff;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding-bottom: 0.5rem;
+      }
+
+      .wallet-box {
+        background: rgba(0, 0, 0, 0.25);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 1.25rem;
+        margin-bottom: 1rem;
+      }
+
+      .wallet-box-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.75rem;
+      }
+
+      .wallet-box-title {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--text-secondary);
+      }
+
+      .wallet-status {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        padding: 0.2rem 0.5rem;
+        border-radius: 50px;
+      }
+
+      .status-offline {
+        background: rgba(255, 51, 102, 0.1);
+        color: var(--accent-red);
+        border: 1px solid rgba(255, 51, 102, 0.2);
+      }
+
+      .status-online {
+        background: rgba(20, 241, 149, 0.1);
+        color: var(--accent-solana);
+        border: 1px solid rgba(20, 241, 149, 0.2);
+      }
+
+      .wallet-address {
+        font-family: monospace;
+        color: var(--accent-cyan);
+        word-break: break-all;
+        font-size: 0.9rem;
+        background: rgba(255, 255, 255, 0.02);
+        padding: 0.5rem;
+        border-radius: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.04);
+      }
+
+      .wallet-balance {
+        font-size: 2rem;
+        font-weight: 800;
+        margin: 0.75rem 0;
+        color: #fff;
+      }
+
+      .wallet-balance span {
+        font-size: 1rem;
+        color: var(--text-secondary);
+        font-weight: 400;
+      }
+
+      .btn {
+        width: 100%;
+        padding: 0.75rem 1.2rem;
+        font-size: 0.95rem;
+        font-weight: 600;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, var(--accent-purple), #7928ca);
+        color: white;
+      }
+
+      .btn-primary:hover {
+        opacity: 0.9;
+        transform: scale(1.01);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: var(--accent-red);
+        border: 1px solid var(--accent-red);
+      }
+
+      .btn-secondary:hover {
+        background: rgba(255, 51, 102, 0.05);
+      }
+
+      .input-group {
+        margin-bottom: 1rem;
+      }
+
+      .input-label {
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        margin-bottom: 0.35rem;
+        display: block;
+      }
+
+      .input-field {
+        width: 100%;
+        background: rgba(0, 0, 0, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 8px;
+        padding: 0.7rem;
+        color: #fff;
+        font-family: monospace;
+        font-size: 0.9rem;
+      }
+
+      .input-field:focus {
+        border-color: var(--accent-purple);
+        outline: none;
+      }
+
+      #error-box {
+        color: var(--accent-red);
+        font-size: 0.8rem;
+        margin-top: 0.5rem;
+        min-height: 1.2rem;
+      }
+
+      .installed-badge {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.85rem;
+        background: rgba(255, 255, 255, 0.03);
+        padding: 0.5rem 0.75rem;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .installed-badge img {
+        width: 20px;
+        height: 20px;
+        border-radius: 4px;
+      }
+
+      /* Q&A SECTION */
+      .qa-section {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .qa-card {
+        background: var(--panel-bg);
+        border: 1px solid var(--panel-border);
+        border-radius: 16px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        border-left: 4px solid var(--accent-cyan);
+      }
+
+      .qa-question {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 0.75rem;
+      }
+
+      .qa-answer {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+      }
+
+      .qa-answer strong {
+        color: #fff;
+      }
+
+      /* REFLECTION SUMMARY */
+      .reflection-summary {
+        background: linear-gradient(135deg, rgba(22, 33, 62, 0.6), rgba(15, 23, 42, 0.8));
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        padding: 2rem;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .reflection-summary h3 {
+        font-family: 'Space Grotesk', sans-serif;
+        color: var(--accent-solana);
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+      }
+
+      .reflection-paragraph {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+        margin-bottom: 1rem;
+        line-height: 1.6;
+      }
+
+      .reflection-paragraph strong {
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="badge">Solana 100 Days Challenge</div>
+      <h1>Explore Different Wallet Types</h1>
+      <p class="subtitle">Comparing security, custody models, and convenience across Solana's wallet ecosystems (Day 5)</p>
+    </header>
+
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab('wallets')">Wallet Archetypes</button>
+      <button class="tab-btn" onclick="switchTab('live-hub')">Active Wallet Hub</button>
+      <button class="tab-btn" onclick="switchTab('reflection')">Reflection Q&A</button>
+      <button class="tab-btn" onclick="switchTab('summary')">Takeaways</button>
+    </div>
+
+    <div class="container">
+      
+      <!-- TAB 1: WALLET ARCHETYPES -->
+      <div id="tab-wallets" class="tab-content active">
+        <div class="grid">
+          
+          <!-- CLI Wallet -->
+          <div class="card" style="--card-accent: var(--accent-purple);">
+            <div class="card-header">
+              <div class="card-title">⌨️ CLI Keypair Wallet</div>
+              <div class="card-tag">Hot / Non-Custodial</div>
+            </div>
+            <ul class="stat-list">
+              <li class="stat-item">
+                <span class="stat-label">Storage Location</span>
+                <span class="stat-value code-path">~/.config/solana/id.json</span>
+              </li>
+              <li class="stat-item">
+                <span class="stat-label">Security Model</span>
+                <span class="stat-value">Plaintext JSON File</span>
+              </li>
+              <li class="stat-item">
+                <span class="stat-label">Recovery Method</span>
+                <span class="stat-value">File Backup / Seed Phrase</span>
+              </li>
+              <li class="stat-item">
+                <span class="stat-label">Setup Speed</span>
+                <span class="stat-value">Instant (CLI command)</span>
+              </li>
+              <li class="stat-item">
+                <span class="stat-label">Safety Level</span>
+                <span class="stat-value" style="color: var(--accent-red)">Low (Hot & Plaintext)</span>
+              </li>
+            </ul>
+            <div class="card-desc">
+              Extremely scriptable and perfect for developers conducting local testing, scripting, or validator administration. However, it lacks confirmation prompts and password encryption at rest, making it insecure for staging mainnet funds.
+            </div>
+          </div>
+
+          <!-- Browser Extension Wallet -->
+          <div class="card" style="--card-accent: var(--accent-solana);">
+            <div class="card-header">
+              <div class="card-title">🌐 Browser Extension</div>
+              <div class="card-tag">Hot / Non-Custodial</div>
+            </div>
+            <ul class="stat-list">
+              <li class="stat-item">
+                <span class="stat-label">Storage Location</span>
+                <span class="stat-value">Browser LocalStorage (Encrypted)</span>
+              </li>
+              <li class="stat-item">
+                <span class="stat-label">Security Model</span>
+                <span class="stat-value">Password Lock + Confirmation Popups</span>
+              </li>
+              <li class="stat-item">
+                <span class="stat-label">Recovery Method</span>
+                <span class="stat-value">12/24 Word Seed Phrase</span>
+              </li>
+              <li class="stat-item">
+                <span class="stat-label">Setup Speed</span>
+                <span class="stat-value">Fast (~2 Minutes)</span>
+              </li>
+              <li class="stat-item">
+                <span class="stat-label">Safety Level</span>
+                <span class="stat-value" style="color: var(--accent-cyan)">Medium (User Controlled)</span>
+              </li>
+            </ul>
+            <div class="card-desc">
+              The everyday gateway to Web3 dApps. Uses Wallet Standard to expose secure transaction signing interfaces. The password encrypts private keys at rest, and confirmation popups ensure no transaction signs silently.
+            </div>
+          </div>
+
+          <!-- Mobile App Wallet -->
+          <div class="card" style="--card-accent: var(--accent-cyan);">
+            <div class="card-header">
+              <div class="card-title">📱 Mobile App Wallet</div>
+              <div class="card-tag">Hot / Non-Custodial</div>
+            </div>
+            <ul class="stat-list">
+              <li class="stat-item">
+                <span class="stat-label">Storage Location</span>
+                <span class="stat-value">iOS/Android Secure Enclave/Keystore</span>
+              </li>
+              <li class="stat-item">
+                <span class="stat-label">Security Model</span>
+                <span class="stat-value">Biometric Authentication + Sandbox</span>
+              </li>
+              <li class="stat-item">
+                <span class="stat-label">Recovery Method</span>
+                <span class="stat-value">12/24 Word Seed Phrase</span>
+              </li>
+              <li class="stat-item">
+                <span class="stat-label">Setup Speed</span>
+                <span class="stat-value">Medium (Download & Setup)</span>
+              </li>
+              <li class="stat-item">
+                <span class="stat-label">Safety Level</span>
+                <span class="stat-value" style="color: var(--accent-solana)">Medium-High (Hardware-Backed)</span>
+              </li>
+            </ul>
+            <div class="card-desc">
+              Combines convenience with high-end OS sandboxing and biometric integrations (Face ID/fingerprint). Many modern smartphones leverage dedicated security co-processors to isolate key material from the standard system memory.
+            </div>
+          </div>
+
+          <!-- Hardware Cold Wallet -->
+          <div class="card" style="--card-accent: var(--accent-orange);">
+            <div class="card-header">
+              <div class="card-title">🛡️ Hardware Cold Wallet</div>
+              <div class="card-tag">Cold / Non-Custodial</div>
+            </div>
+            <ul class="stat-list">
+              <li class="stat-item">
+                <span class="stat-label">Storage Location</span>
+                <span class="stat-value">Offline Hardware Device (Ledger)</span>
+              </li>
+              <li class="stat-item">
+                <span class="stat-label">Security Model</span>
+                <span class="stat-value">Physical PIN + On-Device Signatures</span>
+              </li>
+              <li class="stat-item">
+                <span class="stat-label">Recovery Method</span>
+                <span class="stat-value">24 Word Seed Phrase (Offline)</span>
+              </li>
+              <li class="stat-item">
+                <span class="stat-label">Setup Speed</span>
+                <span class="stat-value">Slow (Physical configuration)</span>
+              </li>
+              <li class="stat-item">
+                <span class="stat-label">Safety Level</span>
+                <span class="stat-value" style="color: var(--accent-solana)">Very High (Air-gapped)</span>
+              </li>
+            </ul>
+            <div class="card-desc">
+              The gold standard for asset protection. Private keys are generated offline and never exposed to the host computer's operating system. Transactions are passed to the device, signed in isolated hardware, and returned.
+            </div>
+          </div>
+
+          <!-- Multisig smart wallet -->
+          <div class="card" style="--card-accent: var(--accent-red);">
+            <div class="card-header">
+              <div class="card-title">🤝 Multisig Smart Wallet</div>
+              <div class="card-tag">Programmable / Non-Custodial</div>
+            </div>
+            <ul class="stat-list">
+              <li class="stat-item">
+                <span class="stat-label">Storage Location</span>
+                <span class="stat-value">On-Chain Smart Contract State</span>
+              </li>
+              <li class="stat-item">
+                <span class="stat-label">Security Model</span>
+                <span class="stat-value">M-of-N Signature Requirement</span>
+              </li>
+              <li class="stat-item">
+                <span class="stat-label">Recovery Method</span>
+                <span class="stat-value">Member Key Replacement Program</span>
+              </li>
+              <li class="stat-item">
+                <span class="stat-label">Setup Speed</span>
+                <span class="stat-value">Slow (Multi-party setup)</span>
+              </li>
+              <li class="stat-item">
+                <span class="stat-label">Safety Level</span>
+                <span class="stat-value" style="color: var(--accent-solana)">Maximum (No single point of failure)</span>
+              </li>
+            </ul>
+            <div class="card-desc">
+              An on-chain account governed by smart contract rules (e.g., Squads). Requires multiple distinct private keys to sign and execute a transaction. Ideal for corporate treasuries, DAOs, or joint venture accounts.
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- TAB 2: ACTIVE WALLET HUB -->
+      <div id="tab-live-hub" class="tab-content">
+        <div class="hub-grid">
+          
+          <!-- Browser Connection -->
+          <div class="hub-panel">
+            <h2 class="hub-title">1. Browser Wallet Connection</h2>
+            
+            <div id="wallet-installed-status" style="margin-bottom: 1rem;">
+              <span class="stat-label">Detected Extensions:</span>
+              <div id="extensions-list" style="display: flex; gap: 8px; margin-top: 0.5rem;">
+                <div class="installed-badge">Scanning...</div>
+              </div>
+            </div>
+
+            <!-- Disconnected State -->
+            <div id="browser-disconnected">
+              <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.9rem;">
+                Connect a browser wallet extension (such as Phantom, Solflare, or MetaMask Snap) using standard wallet detection APIs to fetch details.
+              </p>
+              <div id="wallet-buttons-container"></div>
+            </div>
+
+            <!-- Connected State -->
+            <div id="browser-connected" style="display: none;">
+              <div class="wallet-box">
+                <div class="wallet-box-header">
+                  <span class="wallet-box-title" id="connected-wallet-name">MetaMask</span>
+                  <span class="wallet-status status-online">Connected</span>
+                </div>
+                <div class="wallet-address" id="connected-wallet-address">Gfa11SqE7wpwh9ksRzPT16P79MLnfVJ3n2iTbkvjTFJf</div>
+                <div class="wallet-balance" id="connected-wallet-balance">0.000000000 <span>SOL</span></div>
+              </div>
+              <button class="btn btn-secondary" id="btn-disconnect">Disconnect Wallet</button>
+            </div>
+            
+            <div id="error-box"></div>
+          </div>
+
+          <!-- CLI Inspection -->
+          <div class="hub-panel">
+            <h2 class="hub-title">2. CLI Wallet Inspector</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.9rem;">
+              Enter your local CLI wallet address below to fetch its real-time balance directly from the Devnet RPC.
+            </p>
+            
+            <div class="input-group">
+              <label class="input-label" for="cli-address-input">CLI Wallet Address (Public Key)</label>
+              <input type="text" id="cli-address-input" class="input-field" placeholder="Enter Solana Address..." value="4A9KgD7Tf7HQ5KpVdZYT8KuZPVoSqGEd55t5iLZYX6sE">
+            </div>
+
+            <button class="btn btn-primary" id="btn-inspect-cli">Query Devnet Balance</button>
+
+            <div class="wallet-box" style="margin-top: 1.5rem;">
+              <div class="wallet-box-header">
+                <span class="wallet-box-title">CLI Devnet Status</span>
+                <span class="wallet-status status-offline" id="cli-status">Unlinked</span>
+              </div>
+              <div class="wallet-address" id="cli-display-address">None</div>
+              <div class="wallet-balance" id="cli-display-balance">0.000000000 <span>SOL</span></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- TAB 3: REFLECTION Q&A -->
+      <div id="tab-reflection" class="tab-content">
+        <div class="qa-section">
+          
+          <div class="qa-card">
+            <div class="qa-question">1. Which wallet was fastest to set up?</div>
+            <div class="qa-answer">
+              The <strong>CLI wallet</strong> was the fastest to generate using `solana-keygen new`. It takes less than 5 seconds and instantly writes a key file without requesting password confirmations or completing seed-phrase verification tests.
+            </div>
+          </div>
+
+          <div class="qa-card">
+            <div class="qa-question">2. Which felt safest?</div>
+            <div class="qa-answer">
+              The <strong>mobile wallet</strong> felt the safest due to its biometrics integration (Face ID/fingerprint) which provides hardware-backed gatekeeping. Additionally, the sandbox nature of mobile OS architectures restricts apps from snooping into the storage memory of other apps, reducing vulnerability to local malware.
+            </div>
+          </div>
+
+          <div class="qa-card">
+            <div class="qa-question">3. Where is the private key stored in each case? Could you point to the exact file or storage location?</div>
+            <div class="qa-answer">
+              <ul style="padding-left: 1.5rem; margin-top: 0.5rem;">
+                <li style="margin-bottom: 0.5rem;"><strong>CLI Wallet:</strong> Stored on the local hard drive as a raw plaintext byte array in a JSON file, typically located at <code>~/.config/solana/id.json</code>.</li>
+                <li style="margin-bottom: 0.5rem;"><strong>Browser Wallet:</strong> Stored in the browser's <code>LocalStorage</code>, but encrypted using the password created during setup. In Chrome on Windows, this is found in the local AppData directory under Chrome profile files.</li>
+                <li style="margin-bottom: 0.5rem;"><strong>Mobile Wallet:</strong> Stored in the phone's hardware-isolated key manager (iOS Keychain / Android Keystore), which is often backed by dedicated coprocessors (Secure Enclave).</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="qa-card">
+            <div class="qa-question">4. If your laptop caught fire right now, which wallets could you recover? How?</div>
+            <div class="qa-answer">
+              Only the <strong>Browser wallet</strong> and <strong>Mobile wallet</strong> could be recovered, provided the 12/24 word recovery seed phrase was written down on paper or securely backed up offline. By entering this seed phrase into a new wallet extension or app, we derive the exact same public-private keypairs. The **CLI wallet** would be lost forever if the machine burned unless the backup <code>id.json</code> file or seed phrase was saved on external storage.
+            </div>
+          </div>
+
+          <div class="qa-card">
+            <div class="qa-question">5. If you were building a dApp and needed to sign 500 test transactions in a script, which wallet would you use?</div>
+            <div class="qa-answer">
+              The <strong>CLI wallet</strong>. Because it is stored as a raw file, a Node.js or Python script can load it in memory and programmatically sign 500 transactions within seconds. Using a browser or mobile wallet would require manually clicking "Approve" on a popup 500 times, which is highly impractical.
+            </div>
+          </div>
+
+          <div class="qa-card">
+            <div class="qa-question">6. If you were holding $10,000 in SOL, which wallet would you use?</div>
+            <div class="qa-answer">
+              A <strong>Hardware wallet (e.g. Ledger)</strong>, ideally structured as one of the signer keys in a <strong>Multisig (e.g. Squads)</strong>. This guarantees that private keys never interact with an internet-connected operating system, and requiring multiple signatures prevents a single exploit from draining the treasury.
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- TAB 4: SUMMARY -->
+      <div id="tab-summary" class="tab-content">
+        <div class="reflection-summary">
+          <h3>Day 5 Key Takeaways</h3>
+          <p class="reflection-paragraph">
+            Our hands-on exploration of Solana's wallet ecosystem reveals that <strong>wallets are not accounts themselves; they are management interfaces for private keys</strong>. Under the hood, they all deal with the same mathematical concept—a public key (identity) and a private key (signing authority). The differences lie in <strong>where that private key is stored</strong> and <strong>how it gets utilized to sign transactions</strong>.
+          </p>
+          <p class="reflection-paragraph">
+            The tradeoffs are divided along two distinct dimensions:
+          </p>
+          <ul style="padding-left: 1.5rem; color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.95rem;">
+            <li style="margin-bottom: 0.5rem;"><strong>Convenience vs. Security:</strong> A CLI wallet stores the key as a plaintext file. This makes it instantly scriptable but exposes it to simple system scripts. A hardware wallet isolates the key completely from the network, making it highly secure but tedious to sign transactions.</li>
+            <li style="margin-bottom: 0.5rem;"><strong>Custodian vs. Non-Custodial:</strong> Non-custodial wallets put the responsibility of backup (via seed phrases) entirely on the user. Losing the seed phrase is equivalent to losing the wallet.</li>
+          </ul>
+          <p class="reflection-paragraph">
+            <strong>Conclusion:</strong> In a real development workflow, you never rely on just one wallet type. Developers use <strong>CLI wallets for local scripts and continuous integration</strong>, <strong>browser wallets to interact with Web3 frontends and dev environments</strong>, and <strong>hardware cold wallets or multisigs to safeguard production funds and administrative keys</strong>.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>
