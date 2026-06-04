@@ -55,4 +55,4 @@ My journey learning Solana development over 100 days.
 *   Built and launched an interactive **Solana Wallet Explorer & Reflection Hub** on localhost.
 
 ### Wallet Explorer Dashboard Screenshot (Day 5)
-![Day 5 Screenshot](./100-days-of-solana/day-05/day5.png)
+![Day 5 Screenshot](./100-days-of-solana/day-05/day5-hub.png)

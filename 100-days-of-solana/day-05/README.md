@@ -4,19 +4,21 @@ Today we analyzed and set up three different wallet types on Solana: CLI keypair
 
 ---
 
-## Wallet Comparison Dashboard
+## Interactive Dashboard Screenshots
 
 We built and ran a local interactive **Solana Wallet Explorer & Reflection Hub** on localhost.
 
-![Wallet Explorer Dashboard](./day5.png)
+### 1. Wallet Archetypes Comparison Grid
+![Wallet Archetypes](./day5-archetypes.png)
 
-### Concepts & Setup
+### 2. Active Wallet Hub & Devnet RPC Balance Query
+![Active Wallet Hub](./day5-hub.png)
 
-1. **CLI Wallet:** Stored as plaintext JSON (`~/.config/solana/id.json`). Fast and scriptable for local dev workflows, but hot and insecure for mainnet storage.
-2. **Browser Extension (Phantom/MetaMask):** Password-encrypted at rest in LocalStorage. Standardized API via `@wallet-standard/app` for dApp interfacing, with explicit user prompt guards.
-3. **Mobile Wallet (Phantom/Solflare):** Leverages OS sandboxing and biometric access (FaceID/fingerprint) backed by Secure Enclave hardware co-processors.
-4. **Hardware Wallets (Ledger):** Cold, air-gapped signature verification. Private key never leaves the physical chips.
-5. **Multisigs (Squads):** On-chain smart accounts requiring multiple private keys to approve operations.
+### 3. Reflection Q&A
+![Reflection Q&A](./day5-reflection.png)
+
+### 4. Day 5 Key Takeaways
+![Key Takeaways](./day5-takeaways.png)
 
 ---
 
