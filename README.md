@@ -131,6 +131,17 @@ My journey learning Solana development over 100 days.
 *   Compiled our Week 2 deliverables and shared the cross-network dashboard comparison milestones on Twitter/X to engage with the developer community.
 *   Created templates and structured screenshots showcasing our interactive client-side query dashboards.
 
+---
+
+## Day 15: Understand transaction anatomy
+*   Executed a devnet transfer transaction and dissected the compiled transaction structure using `solana confirm -v`.
+*   Mapped transaction elements (Signatures, Header, Account Keys, Recent Blockhash, and Instructions) to HTTP headers/payload components to build a strong analogy.
+*   Analyzed size constraints like the 1,232-byte MTU limit that dictate Solana transaction sizes.
+
+### Transaction Explorer Screenshot (Day 15)
+![Day 15 Transaction Explorer](./100-days-of-solana/day-15/screenshot.png)
+
+
 
 
 
