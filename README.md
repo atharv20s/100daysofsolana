@@ -79,3 +79,13 @@ My journey learning Solana development over 100 days.
 ### On-Chain Inspector Dashboard Screenshot (Day 8)
 ![Day 8 Screenshot](./100-days-of-solana/day-08/screenshot.png)
 
+---
+
+## Day 9: Fetch and display recent transactions
+*   Connected to the public Solana Devnet via RPC using the new `@solana/kit` and fetched the 5 most recent transaction signatures for the Token-2022 Program address.
+*   Built an interactive **Transaction Inspector** dashboard on localhost (`localhost:5174`) to inspect transaction details in a list showing slots, signatures, status badges, and Unix timestamps.
+
+### Transaction Inspector Dashboard Screenshot (Day 9)
+![Day 9 Screenshot](./100-days-of-solana/day-09/screenshot.png)
+
+

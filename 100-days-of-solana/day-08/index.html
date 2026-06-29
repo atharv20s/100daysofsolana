@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solana On-Chain Inspector | Day 8</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="panel">
+      <div class="badge">
+        <span class="badge-dot"></span>
+        Solana Devnet Active
+      </div>
+      <h1>On-Chain Data Inspector</h1>
+      <p class="subtitle">Query raw Solana state in real-time from the global public database</p>
+
+      <div class="input-group">
+        <label for="addressInput">Solana Public Address</label>
+        <input 
+          type="text" 
+          id="addressInput" 
+          placeholder="Enter Ed25519 Base58 Address..." 
+          value="BJpejz8HQwF1TciYZEBD8VGu12wdVQxq3KkcECcT1AiK"
+        >
+      </div>
+
+      <button id="queryBtn" class="btn-query">Query On-Chain Balance</button>
+
+      <div class="presets">
+        <button class="preset-btn" data-addr="BJpejz8HQwF1TciYZEBD8VGu12wdVQxq3KkcECcT1AiK">My CLI Wallet</button>
+        <button class="preset-btn" data-addr="TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb">Token-2022 Program</button>
+      </div>
+
+      <div id="loader" class="loader"></div>
+
+      <div id="results" class="results-panel">
+        <div class="balance-card">
+          <div id="solAmount" class="balance-amount">0.00</div>
+          <div class="balance-denom">SOL</div>
+        </div>
+        <div id="lamportsAmount" class="lamports-val">Lamports: 0</div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

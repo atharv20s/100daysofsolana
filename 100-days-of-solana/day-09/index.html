@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solana Transaction Inspector | Day 9</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="panel">
+      <div class="badge">
+        <span class="badge-dot"></span>
+        Solana Devnet Active
+      </div>
+      <h1>Transaction Inspector</h1>
+      <p class="subtitle">Fetch the 5 most recent transaction signatures for any address</p>
+
+      <div class="input-group">
+        <label for="addressInput">Public Address</label>
+        <input 
+          type="text" 
+          id="addressInput" 
+          placeholder="Enter Address..." 
+          value="TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+        >
+      </div>
+
+      <button id="fetchBtn" class="btn-fetch">Fetch Recent Transactions</button>
+
+      <div class="presets">
+        <button class="preset-btn" data-addr="TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb">Token-2022 Program</button>
+        <button class="preset-btn" data-addr="BJpejz8HQwF1TciYZEBD8VGu12wdVQxq3KkcECcT1AiK">My CLI Wallet</button>
+      </div>
+
+      <div id="loader" class="loader"></div>
+
+      <h2 id="feedTitle" class="feed-title">Recent Transactions</h2>
+      <div id="txList" class="tx-list"></div>
+    </div>
+  </div>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
