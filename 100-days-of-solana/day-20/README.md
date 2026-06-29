@@ -4,8 +4,19 @@ Today, we constructed and broadcasted our first custom SOL transfer transaction 
 
 ---
 
-## 📸 Transaction Proof of Work (Solana Explorer)
-![Transaction summary on explorer](./screenshot.png)
+## 📸 Transaction Details Gallery (Solana Explorer)
+### 1. Transaction Summary
+![Transaction Summary](./screenshot1.png)
+
+### 2. Accounts & SOL Balance Changes
+![Accounts and Balances](./screenshot2.png)
+
+### 3. Programs invoked
+![Programs invoked](./screenshot3.png)
+
+### 4. Raw Logs & CU Profiling
+![Logs and compute units](./screenshot4.png)
+
 
 ---
 

@@ -148,8 +148,12 @@ My journey learning Solana development over 100 days.
 *   Verified settlement times (~400ms) and explored the architectural purpose of the `--allow-unfunded-recipient` flag (allocating account rent deposits).
 *   Verified updated balances on-chain for both sender and recipient wallets via CLI.
 
-### Transfer Transaction Explorer Screenshot (Day 20)
-![Day 20 Transaction Explorer](./100-days-of-solana/day-20/screenshot.png)
+### Transfer Transaction Explorer screenshots (Day 20)
+![Summary](./100-days-of-solana/day-20/screenshot1.png)
+![Accounts and Balances](./100-days-of-solana/day-20/screenshot2.png)
+![Programs invoked](./100-days-of-solana/day-20/screenshot3.png)
+![Logs and compute units](./100-days-of-solana/day-20/screenshot4.png)
+
 
 
 
