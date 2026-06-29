@@ -1,6 +1,7 @@
-# Day 20: Send your first SOL transfer
+# Day 16: Send your first SOL transfer
 
 Today, we constructed and broadcasted our first custom SOL transfer transaction on the Solana Devnet to transfer `0.5 SOL` to a newly generated recipient wallet.
+
 
 ---
 
