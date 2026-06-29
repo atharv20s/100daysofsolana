@@ -56,3 +56,26 @@ My journey learning Solana development over 100 days.
 
 ### Wallet Explorer Dashboard Screenshot (Day 5)
 ![Day 5 Screenshot](./100-days-of-solana/day-05/day5-hub.png)
+
+---
+
+## Day 6: Share your experiences on DEV (On-Chain Identity)
+*   Drafted and published a technical blog post explaining on-chain identity to Web2 developers.
+*   Explained how Solana uses cryptographic Ed25519 keypairs (similar to SSH keys) as the primary identity anchor instead of centralized database records.
+*   Explored Base58 address encoding and sovereign non-custodial ownership patterns.
+
+---
+
+## Day 7: Share your wallet experiments and amplify others
+*   Shared our progress and takeaways from Week 1 of the #100DaysOfSolana challenge with the community.
+*   Created engagement templates and connected with peer developers to discuss wallet archetypes, hot vs. cold storage, and Base58 usability.
+
+---
+
+## Day 8: Read your first on-chain data
+*   Connected to the public Solana Devnet via RPC using the new `@solana/kit` and fetched the balance of our local CLI wallet address.
+*   Built a client-side interactive **On-Chain Data Inspector** dashboard on localhost that allows users to fetch the balance of any Solana public address in real-time.
+
+### On-Chain Inspector Dashboard Screenshot (Day 8)
+![Day 8 Screenshot](./100-days-of-solana/day-08/screenshot.png)
+
