@@ -4,8 +4,16 @@ Today, we built a command-line transfer tool using the modern `@solana/kit` and 
 
 ---
 
-## 📸 Transaction Proof of Work (Solana Explorer)
-![Transaction Explorer Screenshot](./screenshot.png)
+## 📸 Transaction Details Gallery (Solana Explorer)
+### 1. Transaction Summary
+![Transaction Summary](./screenshot1.png)
+
+### 2. Accounts & SOL Balance Changes
+![Accounts and Balances](./screenshot2.png)
+
+### 3. Programs & Logs
+![Programs invoked](./screenshot3.png)
+
 
 ---
 

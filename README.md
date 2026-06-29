@@ -161,8 +161,11 @@ My journey learning Solana development over 100 days.
 *   Implemented sender keypair resolution, input sanitization, and pre-flight balance checking logic to save transaction fee overhead.
 *   Monitored confirmations dynamically via RPC subscriptions and rendered the completed details link directly to Solana Explorer.
 
-### Transfer Tool Explorer Screenshot (Day 17)
-![Day 17 Transfer Tool Explorer](./100-days-of-solana/day-17/screenshot.png)
+### Transfer Tool Explorer screenshots (Day 17)
+![Summary](./100-days-of-solana/day-17/screenshot1.png)
+![Accounts and Balances](./100-days-of-solana/day-17/screenshot2.png)
+![Programs and Logs](./100-days-of-solana/day-17/screenshot3.png)
+
 
 
 
