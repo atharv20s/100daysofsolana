@@ -125,6 +125,13 @@ My journey learning Solana development over 100 days.
 *   Drafted and compiled a technical blog post summarizing Week 2 reflections of the #100DaysOfSolana journey.
 *   Reflected on working with browser RPC APIs, migrating terminal scripts to dashboards, learning the structural differences between Web2 databases and Solana accounts, and navigating cross-origin CORS limitations on production mainnet networks.
 
+---
+
+## Day 14: Share your work on social media
+*   Compiled our Week 2 deliverables and shared the cross-network dashboard comparison milestones on Twitter/X to engage with the developer community.
+*   Created templates and structured screenshots showcasing our interactive client-side query dashboards.
+
+
 
 
 
