@@ -119,6 +119,13 @@ My journey learning Solana development over 100 days.
 ### Cross-Network Inspector Dashboard Screenshot (Day 12)
 ![Day 12 Screenshot](./100-days-of-solana/day-12/screenshot.png)
 
+---
+
+## Day 13: Write about your second week
+*   Drafted and compiled a technical blog post summarizing Week 2 reflections of the #100DaysOfSolana journey.
+*   Reflected on working with browser RPC APIs, migrating terminal scripts to dashboards, learning the structural differences between Web2 databases and Solana accounts, and navigating cross-origin CORS limitations on production mainnet networks.
+
+
 
 
 
