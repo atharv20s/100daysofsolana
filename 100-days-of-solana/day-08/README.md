@@ -2,11 +2,18 @@
 
 Today, we connected to Solana's Devnet via RPC using the new `@solana/kit` and fetched the balance of our local CLI wallet address.
 
+We also built an interactive web dashboard running on `localhost:5173` that queries the balance of any Solana public address in real-time.
+
+---
+
+## 📸 Interactive Dashboard
+![On-Chain Inspector](./screenshot.png)
+
 ---
 
 ## 💻 Code Implementation
 
-Inside [read-balance.mjs](file:///c:/Users/athar/OneDrive/Desktop/100D_Solana/D1/100-days-of-solana/day-08/read-balance.mjs):
+### CLI Script (`read-balance.mjs`):
 ```javascript
 import { createSolanaRpc, devnet, address } from "@solana/kit";
 
@@ -25,8 +32,15 @@ console.log(`Balance: ${balanceInSol} SOL`);
 
 ---
 
-## 🖥️ Terminal Output
-```text
-Address: BJpejz8HQwF1TciYZEBD8VGu12wdVQxq3KkcECcT1AiK
-Balance: 1 SOL
-```
+## 🚀 How to Run Locally
+
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+2. **Start the local server:**
+   ```bash
+   npm run dev
+   ```
+   Open `http://localhost:5173/` in your browser.
+
