@@ -141,6 +141,17 @@ My journey learning Solana development over 100 days.
 ### Transaction Explorer Screenshot (Day 15)
 ![Day 15 Transaction Explorer](./100-days-of-solana/day-15/screenshot.png)
 
+---
+
+## Day 20: Send your first SOL transfer
+*   Set devnet cluster and executed a deliberate transfer transaction of `0.5 SOL` to a newly generated recipient wallet using `solana transfer`.
+*   Verified settlement times (~400ms) and explored the architectural purpose of the `--allow-unfunded-recipient` flag (allocating account rent deposits).
+*   Verified updated balances on-chain for both sender and recipient wallets via CLI.
+
+### Transfer Transaction Explorer Screenshot (Day 20)
+![Day 20 Transaction Explorer](./100-days-of-solana/day-20/screenshot.png)
+
+
 
 
 
