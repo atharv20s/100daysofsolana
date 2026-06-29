@@ -105,6 +105,11 @@ My journey learning Solana development over 100 days.
 *   Used the Solana CLI to inspect local wallet accounts, executable program accounts (Token Program), and verified the linear scaling property of the rent-exemption model.
 *   Built a comprehensive comparison matrix detailing storage location, schemas, access control, billing, reads/writes, and visibility behaviors.
 
+### Account Inspector Dashboard Screenshots (Day 11)
+![Day 11 Live Inspector](./100-days-of-solana/day-11/screenshot1.png)
+![Day 11 Comparison Grid](./100-days-of-solana/day-11/screenshot2.png)
+
+
 
 
 

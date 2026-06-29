@@ -1,8 +1,13 @@
 # Day 11: Compare accounts vs databases
 
-Today we contrasted the structure, billing, access control, and behavior of **Solana Accounts** with traditional **Web2 databases**.
+Today we contrasted the structure, billing, access control, and behavior of **Solana Accounts** with traditional **Web2 databases**. We built an interactive dashboard running on `localhost:5176` that visualizes this comparison.
 
 ---
+
+## 📸 Dashboard Output (Proof of Work)
+![Live Account Inspector](./screenshot1.png)
+![Comparison Reference Grid](./screenshot2.png)
+
 
 ## 🖥️ Account Inspection CLI Outputs
 
