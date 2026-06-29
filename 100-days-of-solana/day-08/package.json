@@ -1,0 +1,9 @@
+{
+  "name": "day-08",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "read-balance.mjs",
+  "dependencies": {
+    "@solana/kit": "^6.0.0"
+  }
+}
