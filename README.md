@@ -154,6 +154,17 @@ My journey learning Solana development over 100 days.
 ![Programs invoked](./100-days-of-solana/day-16/screenshot3.png)
 ![Logs and compute units](./100-days-of-solana/day-16/screenshot4.png)
 
+---
+
+## Day 17: Build a transfer tool
+*   Created a command-line transfer tool using the modern `@solana/kit` and `@solana-program/system` modules.
+*   Implemented sender keypair resolution, input sanitization, and pre-flight balance checking logic to save transaction fee overhead.
+*   Monitored confirmations dynamically via RPC subscriptions and rendered the completed details link directly to Solana Explorer.
+
+### Transfer Tool Explorer Screenshot (Day 17)
+![Day 17 Transfer Tool Explorer](./100-days-of-solana/day-17/screenshot.png)
+
+
 
 
 

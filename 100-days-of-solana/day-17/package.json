@@ -1,0 +1,9 @@
+{
+  "name": "sol-transfer-tool",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "@solana/kit": "latest",
+    "@solana-program/system": "latest"
+  }
+}
