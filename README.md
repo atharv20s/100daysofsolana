@@ -98,5 +98,13 @@ My journey learning Solana development over 100 days.
 ### Solana Devnet Dashboard Screenshot (Day 10)
 ![Day 10 Screenshot](./100-days-of-solana/day-10/screenshot.png)
 
+---
+
+## Day 11: Compare accounts vs databases
+*   Analyzed how Solana’s account-centric model (combining code and state in a single model) differs from traditional Web2 databases.
+*   Used the Solana CLI to inspect local wallet accounts, executable program accounts (Token Program), and verified the linear scaling property of the rent-exemption model.
+*   Built a comprehensive comparison matrix detailing storage location, schemas, access control, billing, reads/writes, and visibility behaviors.
+
+
 
 
