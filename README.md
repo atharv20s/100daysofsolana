@@ -109,6 +109,18 @@ My journey learning Solana development over 100 days.
 ![Day 11 Live Inspector](./100-days-of-solana/day-11/screenshot1.png)
 ![Day 11 Comparison Grid](./100-days-of-solana/day-11/screenshot2.png)
 
+---
+
+## Day 12: Compare data across devnet and mainnet
+*   Queried the same target address (Token-2022 Program) across two separate RPC environments: Devnet and Mainnet-Beta.
+*   Constructed a side-by-side terminal verification script comparing balances and transaction histories on each network.
+*   Documented why public Mainnet-Beta RPC endpoints restrict web browsers with 403 Forbidden CORS blocks, whereas Node.js server connections work without origin issues.
+
+### Cross-Network Inspector Dashboard Screenshot (Day 12)
+![Day 12 Screenshot](./100-days-of-solana/day-12/screenshot.png)
+
+
+
 
 
 

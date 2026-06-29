@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solana Cross-Network Inspector | Day 12</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="panel">
+      <div class="badge">Day 12 Challenge</div>
+      <h1>Cross-Network Inspector</h1>
+      <p class="subtitle">Query and compare data across Devnet and Mainnet-Beta databases side-by-side</p>
+
+      <div class="input-container">
+        <div class="input-group">
+          <label for="addressInput">Solana Address</label>
+          <input 
+            type="text" 
+            id="addressInput" 
+            placeholder="Enter Address..." 
+            value="TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+          >
+        </div>
+        <button id="fetchBtn" class="btn-fetch">Compare Networks</button>
+        <div id="loader" class="loader"></div>
+      </div>
+
+      <div class="grid-networks">
+        <!-- Devnet Column -->
+        <div class="network-column devnet">
+          <div class="network-header devnet">
+            <span class="network-dot"></span>
+            Devnet Database
+          </div>
+          <div class="balance-box">
+            <div id="devnetBalance" class="balance-sol">0.00 SOL</div>
+            <div class="balance-lbl">Balance</div>
+          </div>
+          <div class="tx-header-title">Recent Transactions (3)</div>
+          <div id="devnetTxList" class="tx-list">
+            <div class="tx-card" style="text-align: center; color: var(--text-secondary);">Click compare to load</div>
+          </div>
+        </div>
+
+        <!-- Mainnet Column -->
+        <div class="network-column mainnet">
+          <div class="network-header mainnet">
+            <span class="network-dot"></span>
+            Mainnet-Beta Database
+          </div>
+          <div class="balance-box">
+            <div id="mainnetBalance" class="balance-sol">0.00 SOL</div>
+            <div class="balance-lbl">Balance</div>
+          </div>
+          <div class="tx-header-title">Recent Transactions (3)</div>
+          <div id="mainnetTxList" class="tx-list">
+            <div class="tx-card" style="text-align: center; color: var(--text-secondary);">Click compare to load</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
