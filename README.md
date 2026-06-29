@@ -88,4 +88,15 @@ My journey learning Solana development over 100 days.
 ### Transaction Inspector Dashboard Screenshot (Day 9)
 ![Day 9 Screenshot](./100-days-of-solana/day-09/screenshot.png)
 
+---
+
+## Day 10: Build a simple dashboard in the browser
+*   Created a vanilla web dashboard using Vite, bundling `@solana/kit` directly for client-side use.
+*   Implemented live data fetching to query both the SOL balance and the 5 most recent transactions for any inputted Solana address dynamically.
+*   Added full try/catch error handling to display user-friendly warnings for bad addresses or network outages.
+
+### Solana Devnet Dashboard Screenshot (Day 10)
+![Day 10 Screenshot](./100-days-of-solana/day-10/screenshot.png)
+
+
 
