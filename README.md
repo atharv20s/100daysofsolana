@@ -265,3 +265,13 @@ Raw data length: 82 bytes
 ✅ All decoders matched successfully!
 ```
 
+---
+
+## Day 25: Explore system program accounts
+*   Inspected native Solana system accounts, program accounts, and cluster configuration variables (sysvars) on devnet using the Solana CLI.
+*   Analyzed the structural differences between:
+    *   **System Accounts (Wallets):** Non-executable, 0 bytes data length, owned by System Program (`1111...`).
+    *   **Native Program Accounts:** Executable, owned by Native Loader (`NativeLoader1111...`).
+    *   **Sysvar Accounts:** Read-only system state (e.g. `SysvarC1ock...`), owned by Sysvar (`Sysvar1111...`).
+
+
