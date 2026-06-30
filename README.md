@@ -201,3 +201,11 @@ My journey learning Solana development over 100 days.
 ## Day 21: Share your transfer tool
 *   Packaged up our completed real-time CLI transfer tool and shared it with the developer community.
 *   Submitted on-chain proof of successful transfer using transaction signature: `HyafdBgDbdwDzStDxCD64Zv6QsRkwrv4hzsea9KNt7VU6fnFnyaQCiJDEaSFE7DF5kwDhdeKiZQP6G6y48ftUHd`.
+
+---
+
+## Day 22: Inspect account data
+*   Used the Solana CLI to query on-chain account parameters (`solana account`) on devnet.
+*   Compared our personal wallet account, the SPL Token Program account (`TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA`), and the Native System Program (`11111111111111111111111111111111`).
+*   Analyzed the structural elements of Solana accounts: owner programs, executable flags, SOL lamport balances, and data byte allocations.
+
