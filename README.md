@@ -212,4 +212,10 @@ My journey learning Solana development over 100 days.
 ### Account Inspection Screenshot (Day 22)
 ![Account Inspection Output](./100-days-of-solana/day-22/screenshot.png)
 
+---
 
+## Day 23: Build an account explorer
+*   Built a custom command-line account explorer (`explorer.mjs`) from scratch using `@solana/kit` and ES Modules.
+*   Implemented live API requests using `getBalance` and `getAccountInfo` to query on-chain account parameters concurrently.
+*   Created mapping arrays to translate raw program owners (like `1111...` or `Token...`) into human-readable program names.
+*   Added buffer processing to format on-chain base64 account data into structured hex bytes, complete with output length calculations and console truncation guards.
