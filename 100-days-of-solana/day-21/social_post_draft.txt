@@ -1,0 +1,10 @@
+🚀 Day 21 of #100DaysOfSolana: Building a Custom SOL Transfer CLI Tool!
+
+I built a CLI tool using @solana/kit that programmatically sends SOL on devnet, but with a twist: it tracks the transaction's confirmation in real-time as it climbs the commitment ladder from Processed -> Confirmed -> Finalized.
+
+Key takeaway: Unlike Web2 APIs where error handling is free, failed transactions on Solana still charge gas fees to pay validators for their compute work. Using preflight simulation checks is crucial to catch logic errors before they cost real money!
+
+On-chain proof of my successful transfer:
+https://explorer.solana.com/tx/HyafdBgDbdwDzStDxCD64Zv6QsRkwrv4hzsea9KNt7VU6fnFnyaQCiJDEaSFE7DF5kwDhdeKiZQP6G6y48ftUHd?cluster=devnet
+
+#solana #web3 #blockchain #buildinpublic
