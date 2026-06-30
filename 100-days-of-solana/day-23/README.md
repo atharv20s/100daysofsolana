@@ -4,6 +4,11 @@ Today, we built a command-line account explorer from scratch. Given any Solana a
 
 ---
 
+## 📸 Account Explorer Terminal Screenshot
+![Account Explorer Screenshot](./screenshot.png)
+
+---
+
 ## 💻 Terminal Execution Output
 
 Here is the terminal output from running the explorer side-by-side with a wallet account and a program account:

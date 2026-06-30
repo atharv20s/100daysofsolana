@@ -219,3 +219,7 @@ My journey learning Solana development over 100 days.
 *   Implemented live API requests using `getBalance` and `getAccountInfo` to query on-chain account parameters concurrently.
 *   Created mapping arrays to translate raw program owners (like `1111...` or `Token...`) into human-readable program names.
 *   Added buffer processing to format on-chain base64 account data into structured hex bytes, complete with output length calculations and console truncation guards.
+
+### Account Explorer Screenshot (Day 23)
+![Account Explorer Screenshot](./100-days-of-solana/day-23/screenshot.png)
+
