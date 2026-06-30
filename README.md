@@ -284,6 +284,10 @@ Raw data length: 82 bytes
 *   Analyzed the **Token-2022 Program** (`TokenzQdBNbXt8TuTRCEjrpb5764uWo1tz5SQH376BB`) executable states, upgrade records, and BPF Upgradeable Loader allocations.
 *   Explored the separation of the main Program ID address and the mutable Program Data Account (`3zcpeKk...`) which stores compiled smart contract bytecode.
 
+### Solana Explorer Analysis Screenshot (Day 26)
+![Solana Explorer Output](./100-days-of-solana/day-26/screenshot.png)
+
+
 
 
 

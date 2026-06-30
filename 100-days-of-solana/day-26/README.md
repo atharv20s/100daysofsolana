@@ -4,6 +4,11 @@ Today was dedicated to exploring live accounts and programs using the Solana Exp
 
 ---
 
+## 📸 Solana Explorer Screenshot
+![Solana Explorer Output](./screenshot.png)
+
+---
+
 ## 🔎 What I Explored
 
 I looked up the **Token-2022 Program** on Mainnet-Beta. Here is what caught my attention:
