@@ -223,3 +223,9 @@ My journey learning Solana development over 100 days.
 ### Account Explorer Screenshot (Day 23)
 ![Account Explorer Screenshot](./100-days-of-solana/day-23/screenshot.png)
 
+---
+
+## Day 24: Decode account data
+*   Implemented on-chain account data decoding for the Wrapped SOL mint address on mainnet.
+*   Decoded the 82-byte binary payload using three parallel approaches: `@solana-program/token` Mint Decoder SDK, manual buffer parsing using Javascript `DataView` over the Borsh serialization specification, and server-side RPC `jsonParsed` formatting.
+*   Investigated serialization constraints such as little-endian ordering (`true` argument flag in `DataView`), Rust `Option` type representation (`__option` flags), and base58 encoding translation filters for public address bytes.
