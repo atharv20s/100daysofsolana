@@ -209,3 +209,7 @@ My journey learning Solana development over 100 days.
 *   Compared our personal wallet account, the SPL Token Program account (`TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA`), and the Native System Program (`11111111111111111111111111111111`).
 *   Analyzed the structural elements of Solana accounts: owner programs, executable flags, SOL lamport balances, and data byte allocations.
 
+### Account Inspection Screenshot (Day 22)
+![Account Inspection Output](./100-days-of-solana/day-22/screenshot.png)
+
+

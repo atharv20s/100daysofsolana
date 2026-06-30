@@ -4,6 +4,11 @@ Today, we used the Solana CLI to inspect different account structures on devnet.
 
 ---
 
+## 📸 Account Inspection Screenshot
+![Account Inspection Output](./screenshot.png)
+
+---
+
 ## 💻 Terminal Execution Output
 
 ### 1. User Wallet Account
