@@ -4,6 +4,11 @@ Today, we explored Solana's native System Program accounts, program accounts, an
 
 ---
 
+## 📸 Account Exploration Screenshot
+![Account Exploration Output](./screenshot.png)
+
+---
+
 ## 💻 Terminal Execution Output
 
 Here is the terminal output from inspecting three distinct account structures:

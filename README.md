@@ -274,4 +274,8 @@ Raw data length: 82 bytes
     *   **Native Program Accounts:** Executable, owned by Native Loader (`NativeLoader1111...`).
     *   **Sysvar Accounts:** Read-only system state (e.g. `SysvarC1ock...`), owned by Sysvar (`Sysvar1111...`).
 
+### Account Types Exploration Screenshot (Day 25)
+![Account Types Output](./100-days-of-solana/day-25/screenshot.png)
+
+
 
