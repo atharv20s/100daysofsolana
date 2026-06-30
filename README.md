@@ -229,3 +229,39 @@ My journey learning Solana development over 100 days.
 *   Implemented on-chain account data decoding for the Wrapped SOL mint address on mainnet.
 *   Decoded the 82-byte binary payload using three parallel approaches: `@solana-program/token` Mint Decoder SDK, manual buffer parsing using Javascript `DataView` over the Borsh serialization specification, and server-side RPC `jsonParsed` formatting.
 *   Investigated serialization constraints such as little-endian ordering (`true` argument flag in `DataView`), Rust `Option` type representation (`__option` flags), and base58 encoding translation filters for public address bytes.
+
+### Decoded Output Comparison:
+```text
+🔍 Fetching account data for Wrapped SOL Mint: So11111111111111111111111111111111111111112...
+Raw data length: 82 bytes
+
+--- [1] Decoded using @solana-program/token Mint Decoder ---
+{
+  mintAuthority: { __option: 'None' },
+  supply: '0',
+  decimals: 9,
+  isInitialized: true,
+  freezeAuthority: { __option: 'None' }
+}
+
+--- [2] Manual Byte-level Parsing (Borsh) ---
+{
+  mintAuthority: { __option: 'None' },
+  supply: '0',
+  decimals: 9,
+  isInitialized: true,
+  freezeAuthority: { __option: 'None' }
+}
+
+--- [3] Decoded Server-Side via RPC jsonParsed ---
+{
+  mintAuthority: { __option: 'None' },
+  supply: '0',
+  decimals: 9,
+  isInitialized: true,
+  freezeAuthority: { __option: 'None' }
+}
+
+✅ All decoders matched successfully!
+```
+
