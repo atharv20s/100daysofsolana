@@ -166,17 +166,38 @@ My journey learning Solana development over 100 days.
 ![Accounts and Balances](./100-days-of-solana/day-17/screenshot2.png)
 ![Programs and Logs](./100-days-of-solana/day-17/screenshot3.png)
 
+---
 
+## Day 18: Add transaction confirmation UI
+*   Extended our programmatic transfer tool using `@solana/kit` to track confirmation progression in real-time.
+*   Bypassed the opaque default helper to manually broadcast signed transactions via `getBase64EncodedWireTransaction` and `rpc.sendTransaction()`.
+*   Implemented a polling loop (`waitForCommitment`) using `getSignatureStatuses` to track the transaction climbing consensus stages: **Processed**, **Confirmed**, and **Finalized**.
 
+### Dynamic UI Confirmation Screenshots (Day 18)
+![Summary](./100-days-of-solana/day-18/screenshot1.png)
+![Accounts and Balances](./100-days-of-solana/day-18/screenshot2.png)
+![Programs and Logs](./100-days-of-solana/day-18/screenshot3.png)
 
+---
 
+## Day 19: Explore failed transactions
+*   Investigated how transaction failures and on-chain errors settle on the network.
+*   Created a script (`force-fail.mjs`) that bypassed client-side preflight simulation (`skipPreflight: true`) to submit an invalid transfer transaction (insufficient SOL balance) on-chain.
+*   Verified that failed transactions still cost gas fees since validators do compute work to execute the instruction.
+*   Dissected transaction details on-chain using `solana confirm -v` and Solana Explorer, highlighting error codes (`custom program error: 0x1`) and runtime logs.
 
+### Failed Transaction Explorer Screenshots (Day 19)
+![Summary](./100-days-of-solana/day-19/screenshot1.png)
+![Accounts, Balances and Logs](./100-days-of-solana/day-19/screenshot2.png)
 
+---
 
+## Day 20: Write about transactions
+*   Cemented transaction conceptual understanding by drafting and publishing a technical blog post on DEV.to.
+*   Explained transaction anatomy (1,232-byte limit, account keys, signatures, blockhash lifetime), commitment consensus lifecycle (Processed vs Confirmed vs Finalized), and the economics of failed transactions.
 
+---
 
-
-
-
-
-
+## Day 21: Share your transfer tool
+*   Packaged up our completed real-time CLI transfer tool and shared it with the developer community.
+*   Submitted on-chain proof of successful transfer using transaction signature: `HyafdBgDbdwDzStDxCD64Zv6QsRkwrv4hzsea9KNt7VU6fnFnyaQCiJDEaSFE7DF5kwDhdeKiZQP6G6y48ftUHd`.
