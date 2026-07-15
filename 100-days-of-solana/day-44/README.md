@@ -98,3 +98,9 @@ Extensions
 ## 🔗 Verification Links
 - **Solana Explorer (Devnet)**: [2AHjpgTEGRkKigNuEtyMA22i99HwjUKLsuMGJePGRuoN](https://explorer.solana.com/address/2AHjpgTEGRkKigNuEtyMA22i99HwjUKLsuMGJePGRuoN?cluster=devnet)
 - **Hosted JSON Metadata**: [metadata.json](https://raw.githubusercontent.com/atharv20s/100daysofsolana/main/day-44/metadata.json)
+
+---
+
+## 🖼️ Explorer Screenshot
+![Solana Explorer Devnet NFT with Metadata](solana-explorer.png)
+
