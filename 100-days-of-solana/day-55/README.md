@@ -25,7 +25,7 @@ Today I turned a week of Token-2022 terminal experiments (Days 50–54) into a p
 ---
 
 ## 🔗 DEV Post Link
-*Published:* [Three Token-2022 Mints in One Week: Fees, Yield, and Soulbound](https://dev.to/atharv_shukla_f7a20a5893f/)
+*Published:* [Three Token-2022 Mints in One Week: Fees, Yield, and Soulbound](https://dev.to/atharv_shukla_f7a20a5893f/three-token-2022-mints-in-one-week-fees-yield-and-soulbound-48j3)
 
 ---
 
