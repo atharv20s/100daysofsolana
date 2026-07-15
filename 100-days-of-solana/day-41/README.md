@@ -9,4 +9,4 @@ You can find the draft in your local workspace here:
 ## 🔗 Submission Link
 Once you post it on DEV Community, update this file or provide the URL to add the final link here:
 
-- **Published DEV Article**: [Link to published post](YOUR_PUBLISHED_DEV_URL_HERE)
+- **Published DEV Article**: [3 Things That Changed How I Think About Solana Tokens](https://dev.to/atharv_shukla_f7a20a5893f/title-3-things-that-changed-how-i-think-about-solana-tokens-16k0)
