@@ -52,5 +52,4 @@ Extensions
 - **Mint Address**: [FDf75ggU728DA8jUdegf7cgQLYbnrzf9ATkD7TQvbBjz](https://explorer.solana.com/address/FDf75ggU728DA8jUdegf7cgQLYbnrzf9ATkD7TQvbBjz?cluster=devnet)
 
 ### 📸 Devnet Explorer Screenshot
-![Interest-Bearing Token on Devnet](./screenshot.png)
-*(Note: Save the screenshot you just took as `screenshot.png` in this `day-36` folder so it renders above!)*
+![Interest-Bearing Token on Devnet — showing Token-2022 Mint with InterestBearingConfig extension and transaction history on Solana Devnet](./screenshot.png)
