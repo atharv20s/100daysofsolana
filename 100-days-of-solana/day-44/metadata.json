@@ -1,0 +1,20 @@
+{
+  "name": "Atharv Genesis NFT",
+  "symbol": "AGEN",
+  "description": "My first NFT minted on Solana Devnet during the 100 Days of Solana challenge.",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/4/49/Dichroic_filters.jpg",
+  "attributes": [
+    {
+      "trait_type": "Creator",
+      "value": "Atharv Shukla"
+    },
+    {
+      "trait_type": "Challenge",
+      "value": "Day 44"
+    },
+    {
+      "trait_type": "Network",
+      "value": "Devnet"
+    }
+  ]
+}
