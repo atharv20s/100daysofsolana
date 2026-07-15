@@ -71,3 +71,9 @@ $ spl-token supply GczjiKWgRqaY3QR9cZQpaEFDCT2xaTFT8Th15gnoBr83
 
 ## 🔗 Explorer Link
 - **Solana Explorer (Devnet)**: [GczjiKWgRqaY3QR9cZQpaEFDCT2xaTFT8Th15gnoBr83](https://explorer.solana.com/address/GczjiKWgRqaY3QR9cZQpaEFDCT2xaTFT8Th15gnoBr83?cluster=devnet)
+
+---
+
+## 🖼️ Explorer Screenshot
+![Solana Explorer Devnet NFT](solana-explorer.png)
+
