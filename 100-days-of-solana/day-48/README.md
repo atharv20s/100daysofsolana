@@ -4,6 +4,8 @@ Before this week, I thought a Solana NFT was exclusively a Metaplex thing. It tu
 
 Here is the mental model shift and technical breakdown from my week building NFTs on Solana.
 
+📖 **Published DEV Post:** [Solana NFTs Without Metaplex: What I Learned Building NFTs with Token Extensions](https://dev.to/atharv_shukla_f7a20a5893f/solana-nfts-without-metaplex-what-i-learned-building-nfts-with-token-extensions-28n)
+
 ---
 
 ## 🧠 The Mental Model: What is a Solana NFT anyway?
