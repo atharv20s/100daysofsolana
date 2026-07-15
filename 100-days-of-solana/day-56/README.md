@@ -23,7 +23,7 @@ Using the word-count rule, each section fits neatly within the 280-character lim
 
 ## 🔗 Verification Links
 *   **DEV Write-up:** [Three Token-2022 Mints on DEV](https://dev.to/atharv_shukla_f7a20a5893f/three-token-2022-mints-in-one-week-fees-yield-and-soulbound-48j3)
-*   **Social Thread URL:** *(Pending publication by user)*
+*   **Social Thread DEV URL:** [What Building Three Token-2022 Mints Changed About How I Think About Tokens](https://dev.to/atharv_shukla_f7a20a5893f/what-building-three-token-2022-mints-changed-about-how-i-think-about-tokens-3njf)
 
 ---
 
