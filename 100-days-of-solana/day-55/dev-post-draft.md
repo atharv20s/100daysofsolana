@@ -9,6 +9,25 @@ tags: 100DaysOfSolana, solana, web3, tutorial
 
 If you come from Web2, think of Token-2022 as the upgraded SPL token program on Solana — the same way you might think of Express middleware layered on top of a Node server. Instead of forking the token program to add custom behaviors, you flip extension flags at mint creation time. The runtime enforces them from that point forward. No custom smart contracts. No Rust. Just CLI commands and configuration that lives on chain forever.
 
+Every extension is stored inside the mint account using Solana's **Type-Length-Value (TLV)** layout. When you enable an extension during mint creation, the account allocates extra bytes for that extension's data, which is why more features require more rent. The architecture looks like this:
+
+```
+              Token-2022 Mint Account
+             ┌─────────────────────┐
+             │   Base Mint Data    │  ← supply, decimals, authorities
+             ├─────────────────────┤
+             │   Transfer Fee      │  ← TLV: basis points, max fee, authorities
+             ├─────────────────────┤
+             │   Interest-Bearing  │  ← TLV: rate, timestamp, authority
+             ├─────────────────────┤
+             │   Metadata          │  ← TLV: name, symbol, uri
+             ├─────────────────────┤
+             │   Non-Transferable  │  ← TLV: flag (no extra data)
+             └─────────────────────┘
+              Extensions stack as
+              additional TLV entries
+```
+
 Over the past week, I shipped three mints on devnet using three different extensions. Here's exactly what I built and why each one matters.
 
 ---
@@ -76,21 +95,21 @@ Two extensions on one mint. The transfer fee works exactly like Mint 1. The inte
 
 Here's what caught me off guard: **the interest extension does not mint new supply**. It updates the *UI-displayed amount* using a continuous compounding formula based on elapsed time. The raw token amount in the account stays the same. The "interest" is a presentation-layer calculation that wallets and explorers render.
 
-This means if you're building a product on top of this, the interest is cosmetic until someone actually mints or distributes the difference. It's like a bank showing you your accrued interest before it posts to your account.
+The extension changes how wallets compute and display balances. The raw token amount stored on-chain never increases. If you're building a product on top of this, you need to understand that distinction — the displayed balance and the actual balance are two different numbers.
 
 ### On-Chain Proof
 
 Running `spl-token display` on the same account 30 seconds apart:
 
-```yaml
-# First check
-Balance: 1000000.332734
+```
+First check:
+  1,000,000.332734
 
-# 30 seconds later
-Balance: 1000000.730303
+30 seconds later:
+  1,000,000.730303
 ```
 
-The balance drifts upward without any transaction. That's the interest extension at work.
+The displayed balance drifts upward without any transaction. That's the interest extension at work — pure math, zero minting.
 
 ---
 
@@ -142,8 +161,6 @@ Here's the full audit across all three mints:
 | `GS7JaVub...maL` | Transfer Fees + Interest-Bearing | Charges 1% + accrues 50% APR display interest |
 | `295DTMWY...oed` | Non-Transferable | Cannot be sent, sold, or moved. Ever. |
 
-Three mints. Three different shapes. Zero custom programs written.
-
 ---
 
 ## What Surprised Me
@@ -152,7 +169,7 @@ The biggest thing I didn't expect was how *composable* extensions are. Stacking 
 
 The non-transferable extension was the most visceral. Seeing the validator print `Transfer is disabled for this mint` and reject your instruction at the protocol level hits differently than a 403 from an API. There's no backdoor. There's no admin panel. The rule lives in the bytes of the mint account, readable by anyone, enforceable by the network.
 
-If I were building a real product, I'd reach for transfer fees on a creator token or community currency, interest-bearing for a savings-style stablecoin wrapper, and non-transferable for onboarding credentials. Token-2022 makes all three a configuration problem, not a smart contract problem.
+After building these three mints, the biggest takeaway for me is that Token-2022 turns token behavior into configuration rather than application logic. Instead of writing separate smart contracts for fees, rewards, or credentials, you compose extensions directly into the mint and let the Solana runtime enforce those rules everywhere the token is used.
 
 ---
 
