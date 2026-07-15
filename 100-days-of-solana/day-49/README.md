@@ -34,6 +34,6 @@ For Day 49, I drafted a structured social thread/post to share my Solana NFT jou
 
 ### Post 5 (Call to Action)
 > Read my full technical walkthrough of the process, including explorer snapshots and configuration steps:
-> 🔗 https://dev.to/atharv_shukla_f7a20a5893f/solana-nfts-without-metaplex-what-i-learned-building-nfts-with-token-extensions-28n
+> 🔗 https://dev.to/atharv_shukla_f7a20a5893f/day-49-of-100daysofsolana-from-minting-my-first-nft-to-building-on-chain-collections-hhg
 > 
 > This is Day 49 of my #100DaysOfSolana journey. Tagging @solana & @solana_devs! 🚀
